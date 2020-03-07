@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import './index.scss'

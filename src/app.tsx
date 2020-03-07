@@ -1,11 +1,16 @@
+
+// eslint-disable-next-line no-unused-vars
 import Taro, { Component, Config } from '@tarojs/taro'
 import Index from './pages/index'
+
 import './app.scss'
 
 
 
-
 class App extends Component {
+
+  componentWillMount() {
+  }
 
   componentDidMount() { }
 
@@ -14,6 +19,7 @@ class App extends Component {
   componentDidHide() { }
 
   componentDidCatchError() { }
+
 
   config: Config = {
     pages: [
