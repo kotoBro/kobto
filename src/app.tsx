@@ -2,30 +2,18 @@
 // eslint-disable-next-line no-unused-vars
 import Taro, { Component, Config } from '@tarojs/taro'
 import Index from './pages/index'
-
 import './app.scss'
 
 
 
 class App extends Component {
 
-  componentWillMount() {
-  }
-
-  componentDidMount() { }
-
-  componentDidShow() { }
-
-  componentDidHide() { }
-
-  componentDidCatchError() { }
-
-
   config: Config = {
     pages: [
       'pages/index/index',
       'pages/shoppingCart/index',
-      'pages/my/index'
+      'pages/my/index',
+      'pages/search/index'
     ],
     window: {
       backgroundTextStyle: 'light',
