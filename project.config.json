@@ -51,8 +51,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/search/index",
-					"pathName": "pages/search/index",
+					"name": "pages/my/index",
+					"pathName": "pages/my/index",
+					"query": "",
 					"scene": null
 				}
 			]

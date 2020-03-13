@@ -20,7 +20,7 @@
 
   .tab_list {
     display: flex;
-    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     text-align: center;
     margin: 30px;

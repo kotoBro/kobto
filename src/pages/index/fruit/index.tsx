@@ -3,10 +3,10 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import './index.scss'
 
-export default class ShoppingCart extends Component {
+export default class Fruit extends Component {
 
     config: Config = {
-        navigationBarTitleText: '购物车',
+        navigationBarTitleText: '水果',
         navigationBarBackgroundColor: '#1e90ff'
     }
 

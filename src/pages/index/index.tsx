@@ -2,8 +2,8 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import './index.scss'
-import SearchBox from '../../sharingCom/searchBox/index'
-import HomePageSwiper from '../../sharingCom/homePageSwiper/index'
+import SearchBox from '../../components/searchBox/index'
+import HomePageSwiper from '../../components/homePageSwiper/index'
 
 import locationPng from '../../static/icons/location.png'
 import demoIcon from '../../static/icons/demo_icon.png'
@@ -12,18 +12,20 @@ export default class Index extends Component {
 
   config: Config = {
     navigationBarTitleText: '食品采单',
+    navigationBarTextStyle: 'white',
     navigationBarBackgroundColor: '#1e90ff'
   }
 
 
 
   render() {
-    const discountList = ['满减优惠', '下单返红包', '进店领红包', '品质联盟红包'];
+    const discountList = ['满减优惠', '下单返红包', '进店领红包', '品质联盟红包']
     const tabList = [
       { icon: demoIcon, name: '商超便利' },
       { icon: demoIcon, name: '水果' },
-      { icon: demoIcon, name: '下午茶' },
-      { icon: demoIcon, name: '炸鸡炸串' }];
+      { icon: demoIcon, name: '甜品饮料' },
+      { icon: demoIcon, name: '炸鸡炸串' }
+    ]
     return (
       <View className='index'>
         <View className='location' >
@@ -38,9 +40,7 @@ export default class Index extends Component {
         <View className='tab_list' >
           {tabList.map((tab, idx) => {
             return (
-              <View className='tab_item'
-                key={idx}
-              >
+              <View className='tab_item' key={idx}>
                 <View> <Image className='icon' src={tab.icon} /></View>
                 <View>{tab.name}</View>
               </View>
