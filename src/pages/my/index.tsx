@@ -14,12 +14,18 @@ export default class Index extends Component {
         navigationBarBackgroundColor: '#f5f5f5'
     }
 
+    naviSkip(obj) {
+        Taro.navigateTo({
+            url: obj.naviUrl
+        })
+    }
+
     render() {
         const tabList = [
-            { icon: demoIcon, text: '我的地址', arrow: '>' },
-            { icon: demoIcon, text: '我的收藏', arrow: '>' },
-            { icon: demoIcon, text: '我的客服', arrow: '>' },
-            { icon: demoIcon, text: '规则中心', arrow: '>' }
+            { icon: demoIcon, text: '我的地址', arrow: '>', naviUrl: '/pages/my/myAddress/index' },
+            { icon: demoIcon, text: '我的收藏', arrow: '>', naviUrl: '/pages/my/myCollect/index' },
+            { icon: demoIcon, text: '我的客服', arrow: '>', naviUrl: '/pages/my/myCustomerService/index' },
+            { icon: demoIcon, text: '规则中心', arrow: '>', naviUrl: '/pages/my/ruleCenter/index' }
         ]
         return (
             <View className='index'>
@@ -34,7 +40,7 @@ export default class Index extends Component {
                     </View>
                 </View>
                 <View className='tab_list' >
-                    {tabList.map((tab, idx) => (<View className='tab_item' key={idx}>
+                    {tabList.map((tab, idx) => (<View className='tab_item' key={idx} onClick={this.naviSkip.bind(this, tab)} >
                         <View className='container' >
                             <Image className='icon' src={tab.icon} />
                             <Text className='text' >{tab.text}</Text>
