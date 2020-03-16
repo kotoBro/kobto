@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-indent-props */
 import Taro, { Component } from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image } from '@tarojs/components'
-import swiperPng from '../../static/icons/demo_img.png'
+import swiperPng from '../../static/imgs/demo_img.png'
 
 export default class SwiperImageItem extends Component {
 

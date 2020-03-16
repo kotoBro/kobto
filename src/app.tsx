@@ -11,9 +11,20 @@ class App extends Component {
   config: Config = {
     pages: [
       'pages/index/index',
+      'pages/index/search/index',
+      'pages/index/shangChao/index',
+      'pages/index/fruit/index',
+      'pages/index/dessertDrink/index',
+      'pages/index/friedFood/index',
+
       'pages/shoppingCart/index',
+
       'pages/my/index',
-      'pages/search/index'
+      'pages/my/myAddress/index',
+      'pages/my/myCollect/index',
+      'pages/my/myCustomerService/index',
+      'pages/my/ruleCenter/index'
+
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -22,9 +33,9 @@ class App extends Component {
       navigationBarTextStyle: 'white'
     },
     tabBar: {
-      color: '#D3D3D3',
+      color: '#000',
       selectedColor: '#FF0000',
-      backgroundColor: '#F5F5F5',
+      backgroundColor: '#fff',
       borderStyle: 'black',
       list: [{
         text: '食品菜单',

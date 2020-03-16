@@ -6,7 +6,7 @@ export default class SearchBox extends Component<any> {
 
     naviEditSearch() {
         Taro.navigateTo({
-            url: '/pages/search/index'
+            url: '/pages/index/search/index'
         })
     }
 
