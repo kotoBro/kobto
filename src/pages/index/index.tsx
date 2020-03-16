@@ -21,7 +21,18 @@ export default class Index extends Component {
       url: obj.naviUrl
     })
   }
-
+  get data() {
+    return Taro.request({
+      url: 'http://localhost:8899/user/info',
+      data: {},
+      success: res => {
+        console.log(res)
+      },
+      fail: err => {
+        console.log(err)
+      }
+    })
+  }
 
 
   render() {

@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 
 module.export = [
-    Mock.mock('user/info', {
+    Mock.mock('/user/info', {
         'data|5': [
             {
                 'key|+1': 1,
