@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro'
 import { HTTP_STATUS } from '../const/status'
 
 /**
@@ -37,27 +38,29 @@ class axiosHttp {
       : { 'Content-Type': 'application/json' }
     return this.taroRequest({ path, data, method, header })
   }
-  async taroRequest(config: axiosConfig) {
+  taroRequest(config: axiosConfig) {
     let { path, data, header, method } = config
-    return Taro.request({
-      url: this.baseUrl + path,
-      data,
-      header,
-      method,
-      success: res => {
-        if (res.statusCode === HTTP_STATUS.NOT_FOUND) {
-          return this.logError('api', '请求资源不存在')
-        } else if (res.statusCode === HTTP_STATUS.BAD_GATEWAY) {
-          return this.logError('api', '服务端出现了问题')
-        } else if (res.statusCode === HTTP_STATUS.FORBIDDEN) {
-          return this.logError('api', '没有权限访问')
-        } else if (res.statusCode === HTTP_STATUS.SUCCESS) {
-          return res.data
+    return new Promise((resolve, reject) => {
+      Taro.request({
+        url: this.baseUrl + path,
+        data,
+        header,
+        method,
+        success: res => {
+          if (res.statusCode === HTTP_STATUS.NOT_FOUND) {
+            return this.logError('api', '请求资源不存在')
+          } else if (res.statusCode === HTTP_STATUS.BAD_GATEWAY) {
+            return this.logError('api', '服务端出现了问题')
+          } else if (res.statusCode === HTTP_STATUS.FORBIDDEN) {
+            return this.logError('api', '没有权限访问')
+          } else if (res.statusCode === HTTP_STATUS.SUCCESS) {
+            resolve(res.data)
+          }
+        },
+        fail: err => {
+          this.logError('api', '请求接口出现问题')
         }
-      },
-      error(e) {
-        this.logError('api', '请求接口出现问题', e)
-      }
+      })
     })
   }
 
