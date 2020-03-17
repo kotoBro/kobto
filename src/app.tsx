@@ -4,6 +4,7 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import Index from './pages/index'
 import './app.scss'
 import http from './server/http'
+console.log(http)
 class App extends Component {
 
   config: Config = {
