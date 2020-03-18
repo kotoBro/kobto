@@ -56,5 +56,67 @@
         padding: 15px;
       }
     }
+
+    .recommend_business {
+      margin: 30px 0;
+
+      .container {
+        display: flex;
+
+        .img {
+          width: 170px;
+          height: 170px;
+          padding-right: 10px;
+        }
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+
+          .shop_name {
+            font-weight: bold;
+            padding-bottom: 8px;
+          }
+
+          .content {
+
+            .business {
+              color: #696969;
+              font-size: 27px;
+              font-weight: bold;
+              padding-bottom: 8px;
+            }
+
+            .business_situation {
+              display: flex;
+              font-size: 25px;
+              color: #d3d3d3;
+              padding-bottom: 8px;
+
+            }
+
+            .distribution_details {
+              display: flex;
+              justify-content: space-between;
+              font-size: 25px;
+              color: #d3d3d3;
+              padding-bottom: 8px;
+
+            }
+
+            .text {
+              padding-right: 20px;
+            }
+
+            .collection {
+              color: #ffd700;
+            }
+          }
+        }
+      }
+
+    }
   }
 }
