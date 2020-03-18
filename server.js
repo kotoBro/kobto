@@ -1,7 +1,9 @@
+/* eslint-disable import/no-commonjs */
 let express = require('express');    //引入express模块
-let Mock = require('mockjs');        //引入mock模块
-let app = express();                //实例化express
-
+let Mock = require('mockjs');
+let mockApiList = require('./arrayMock.json')
+//引入mock模块
+let app = express();
 /**
  * 配置test.action路由
  * @param  {[type]} req  [客户端发过来的请求所带数据]
@@ -11,6 +13,24 @@ app.all('/test.action', function (req, res) {
   res.send('hello world');
 });
 
+console.log(mockApiList.list)
+mockApiList.list.map(item => {
+  app.get(item.port, (req, res) => {
+    if (item.type === 'Array') {
+      res.json(Mock.mock({
+        'code': 0,
+        'msg': '成功',
+        'data|9': item.data
+      }))
+    } else {
+      res.json(Mock.mock({
+        'code': 0,
+        'msg': '成功',
+        'data': item.data
+      }))
+    }
+  })
+})
 app.get('/user/info', function (req, res) {
   res.json(Mock.mock({
     code: 0,
