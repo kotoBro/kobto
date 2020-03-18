@@ -59,6 +59,7 @@ class axiosHttp {
         },
         fail: err => {
           this.logError('api', '请求接口出现问题')
+          reject(err)
         }
       })
     })
