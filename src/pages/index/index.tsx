@@ -7,7 +7,7 @@ import HomePageSwiper from '../../components/homePageSwiper/index'
 
 import locationPng from '../../static/icons/location.png'
 import demoIcon from '../../static/icons/demo_icon.png'
-
+import { getData } from '../../constants/test'
 export default class Index extends Component {
 
   config: Config = {
@@ -22,8 +22,6 @@ export default class Index extends Component {
     })
   }
 
-
-
   render() {
     const discountList = ['满减优惠', '下单返红包', '进店领红包', '品质联盟红包']
     const tabList = [
@@ -35,7 +33,7 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <View className='location' >
-          <View className='container' >
+          <View className='container' onClick={getData}>
             <Image src={locationPng} className='icon' />
           </View>
           <View>

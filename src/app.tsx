@@ -4,8 +4,6 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import Index from './pages/index'
 import './app.scss'
 
-
-
 class App extends Component {
 
   config: Config = {
@@ -16,9 +14,7 @@ class App extends Component {
       'pages/index/fruit/index',
       'pages/index/dessertDrink/index',
       'pages/index/friedFood/index',
-
       'pages/shoppingCart/index',
-
       'pages/my/index',
 
       'pages/my/myAddress/index',
@@ -26,10 +22,7 @@ class App extends Component {
 
       'pages/my/myCollect/index',
       'pages/my/myCustomerService/index',
-      'pages/my/ruleCenter/index',
-
-      'pages/address/index'
-
+      'pages/my/ruleCenter/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -53,14 +46,12 @@ class App extends Component {
         pagePath: 'pages/shoppingCart/index',
         iconPath: 'static/tarBar/home1.png',
         selectedIconPath: 'static/tarBar/home2.png'
-
       },
       {
         text: '我的',
         pagePath: 'pages/my/index',
         iconPath: 'static/tarBar/my1.png',
         selectedIconPath: 'static/tarBar/my2.png'
-
       },
       ]
     }
