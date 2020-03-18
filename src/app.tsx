@@ -20,10 +20,15 @@ class App extends Component {
       'pages/shoppingCart/index',
 
       'pages/my/index',
+
       'pages/my/myAddress/index',
+      'pages/my/myAddress/newIncreasedAddress/index',
+
       'pages/my/myCollect/index',
       'pages/my/myCustomerService/index',
-      'pages/my/ruleCenter/index'
+      'pages/my/ruleCenter/index',
+
+      'pages/address/index'
 
     ],
     window: {
