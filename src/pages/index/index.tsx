@@ -8,6 +8,7 @@ import HomePageSwiper from '../../components/homePageSwiper/index'
 import locationPng from '../../static/icons/location.png'
 import demoIcon from '../../static/icons/demo_icon.png'
 import { getData } from '../../constants/test'
+
 export default class Index extends Component {
 
   config: Config = {
