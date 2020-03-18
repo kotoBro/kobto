@@ -71,6 +71,9 @@ export default class Address extends Component<any, any> {
 
 
         Taro.setStorageSync('myAddress', myAddress)
+        Taro.navigateBack({
+            delta: 1
+        })
 
     }
 
@@ -82,6 +85,31 @@ export default class Address extends Component<any, any> {
             }
         })
     }
+    handleChange2(e) {
+        this.setState({
+            myAddress: {
+                ...this.state.myAddress,
+                phone: e.target.value
+            }
+        })
+    }
+    handleChange3(e) {
+        this.setState({
+            myAddress: {
+                ...this.state.myAddress,
+                address: e.target.value
+            }
+        })
+    }
+    handleChange4(e) {
+        this.setState({
+            myAddress: {
+                ...this.state.myAddress,
+                explanation: e.target.value
+            }
+        })
+    }
+
 
     render() {
         let { username, phone, address, explanation } = this.state.myAddress
@@ -101,15 +129,15 @@ export default class Address extends Component<any, any> {
                     </View>
                     <View className='information_list' >
                         <View className='header'> 电话 </View>
-                        <Input type='number' placeholder='手机电话' value={phone} />
+                        <Input type='number' placeholder='手机电话' value={phone} onInput={this.handleChange2} />
                     </View>
                     <View className='information_list' onClick={this.naviSkip} >
                         <View className='header'> 地址 </View>
-                        <Input type='text' placeholder='选择收货地址' value={address} disabled />
+                        <Input type='text' placeholder='选择收货地址' value={address} disabled onInput={this.handleChange3} />
                     </View>
                     <View className='information_list' >
                         <View className='header'> 补充说明 </View>
-                        <Input type='text' placeholder='详细地址 (如门牌号等)' value={explanation} />
+                        <Input type='text' placeholder='详细地址 (如门牌号等)' value={explanation} onInput={this.handleChange4} />
                     </View>
                 </View>
 

@@ -36,7 +36,7 @@ export default class Address extends Component<any, any> {
     }
 
     naviSkip() {
-        Taro.redirectTo({
+        Taro.navigateTo({
             url: '/pages/my/myAddress/newIncreasedAddress/index'
         })
     }
@@ -48,10 +48,10 @@ export default class Address extends Component<any, any> {
                 <View className='myAddress' >
                     <View className='container' >
                         <View className='user_info' >
-                            <View className='name' > {username || '陈锡逵'} </View>
-                            <View className='phone' > {phone || '13342955574'} </View>
+                            <View className='name' > {username} </View>
+                            <View className='phone' > {phone} </View>
                         </View>
-                        <View className='text' > {address || '汕尾市陆丰市湖东镇宁湖村委会田乾外巷26号之三'} {explanation} </View>
+                        <View className='text' > {address} {explanation} </View>
                     </View>
                 </View>
 
