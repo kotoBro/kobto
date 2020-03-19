@@ -14,22 +14,40 @@ export default class Index extends Component<any, any> {
   constructor(props) {
     super(props)
     this.state = {
-      shopName: '',
-      shopLocation: '',
-      business: '',
-      collectionQuantity: '',
-      monthlySales: '',
-      delivery: '',
-      distributionFee: '',
-      distributionTime: '',
-      deliveryDistance: ''
+      storeInfo: {
+        storeName: '',
+        shopLocation: '',
+        business: '',
+        collectionQuantity: '',
+        monthlySales: '',
+        price: '',
+        deliveryFee: '',
+        mimu: '',
+        distance: ''
+      }
     }
+  }
+
+  componentDidMount() {
+    this.getStore()
   }
 
   config: Config = {
     navigationBarTitleText: '食品采单',
     navigationBarTextStyle: 'white',
     navigationBarBackgroundColor: '#1e90ff'
+  }
+
+
+
+  async getStore() {
+    const res = await getData()
+    this.setState({
+      storeInfo: {
+        res
+      }
+
+    })
   }
 
   naviSkip(obj) {
@@ -46,9 +64,10 @@ export default class Index extends Component<any, any> {
       { icon: demoIcon, name: '甜品饮料', naviUrl: '/pages/index/dessertDrink/index' },
       { icon: demoIcon, name: '炸鸡炸串', naviUrl: '/pages/index/friedFood/index' }
     ]
-    const { shopName, shopLocation, business, collectionQuantity, monthlySales, delivery,
-      distributionFee, distributionTime, deliveryDistance }
-      = this.state
+    const { storeName, shopLocation, business, collectionQuantity, monthlySales, price,
+      deliveryFee, mimu, distance }
+      = this.state.storeInfo
+    const res = getData()
     return (
       <View className='index'>
         <View className='location' >
@@ -89,11 +108,40 @@ export default class Index extends Component<any, any> {
           </View>
 
           <View className='recommend_business' >
-            <View className='container' >
+
+            {res.map((item) =>
+              (<View className='container' key={String(item)}>
+                <Image className='img' src={swiperPng} />
+                <View className='info'>
+                  <View className='shop_name'>
+                    {storeName} ({shopLocation || '汕尾店'})
+                </View>
+                  <View className='content'>
+                    <View className='business'>
+                      {business || '本店已休息'}
+                    </View>
+                    <View className='business_situation'>
+                      <View className='text collection'>★{collectionQuantity || '0'} </View>
+                      <View>月售 {monthlySales || '0'} </View>
+                    </View>
+                    <View className='distribution_details'>
+                      <View className='container'>
+                        <View className='text'>起送￥{price}</View>
+                        <View>{deliveryFee}</View>
+                      </View>
+                      <View className='container'>
+                        <View className='text'> {mimu}分钟 </View>
+                        <View> {distance}km </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>))}
+            {/* <View className='container' >
               <Image className='img' src={swiperPng} />
               <View className='info' >
                 <View className='shop_name' >
-                  {shopName || '流星烧烤摊'} ({shopLocation || '汕尾店'})
+                  {storeName} ({shopLocation || '汕尾店'})
                 </View>
                 <View className='content' >
                   <View className='business' >
@@ -105,17 +153,17 @@ export default class Index extends Component<any, any> {
                   </View>
                   <View className='distribution_details' >
                     <View className='container' >
-                      <View className='text' >起送￥{delivery || '0'}</View>
-                      <View>{distributionFee || '免费配送'}</View>
+                      <View className='text' >起送￥{price}</View>
+                      <View>{deliveryFee}</View>
                     </View>
                     <View className='container' >
-                      <View className='text' > {distributionTime || '10'}分钟 </View>
-                      <View> {deliveryDistance || '2'}km </View>
+                      <View className='text' > {mimu}分钟 </View>
+                      <View> {distance}km </View>
                     </View>
                   </View>
                 </View>
               </View>
-            </View>
+            </View> */}
           </View>
 
         </View>
