@@ -17,7 +17,7 @@ interface axiosConfig {
 
 class axiosHttp {
   [key: string]: any,
-  baseUrl: string = ''
+  baseUrl: string = process.env.BASE_URL
   dataType: string = 'json'
   get(path: string, data = {}, isAuth: boolean = false, method: string = 'GET') {
     return this.doAxios(path, data, isAuth, method)

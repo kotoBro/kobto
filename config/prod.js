@@ -1,6 +1,7 @@
 module.exports = {
   env: {
-    NODE_ENV: '"production"'
+    NODE_ENV: '"production"',
+    BASE_URL: '"https://tapi.wowqu.cn"'
   },
   defineConstants: {},
   mini: {},
