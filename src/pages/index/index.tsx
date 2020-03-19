@@ -96,26 +96,26 @@ export default class Index extends Component<any, any> {
           <View className='recommend_business' >
             {storeList.map((item) =>
               (<View className='container' key={String(item)}>
-                <Image className='img' src={item.imageUrl || swiperPng} />
+                <Image className='img' src={swiperPng} />
                 <View className='info'>
                   <View className='shop_name'>
-                    {item.storeName} ({item.shopLocation || '汕尾店'})
+                    {item.storeName} ({item.shopLocation})
                 </View>
                   <View className='content'>
                     <View className='business'>
-                      {item.business || '本店已休息'}
+                      {item.business}
                     </View>
                     <View className='business_situation'>
-                      <View className='text collection'>★{item.collectionQuantity || '0'} </View>
-                      <View>月售 {item.monthlySales || '0'} </View>
+                      <View className='text collection'>★{item.star || '0'} </View>
+                      <View>月售 {item.monthlySales} </View>
                     </View>
                     <View className='distribution_details'>
                       <View className='container'>
                         <View className='text'>起送￥{item.price}</View>
-                        <View>{item.deliveryFee}</View>
+                        <View>配送费￥：{item.deliveryFee}</View>
                       </View>
                       <View className='container'>
-                        <View className='text'> {item.mimu}分钟 </View>
+                        <View className='text'> {item.minu}分钟 </View>
                         <View> {item.distance}km </View>
                       </View>
                     </View>

@@ -15,7 +15,8 @@ export default class Address extends Component<any, any> {
 
             },
             sir: '先生',
-            lady: '女士'
+            lady: '女士',
+            addressList: []
         }
     }
 
@@ -26,10 +27,6 @@ export default class Address extends Component<any, any> {
     }
 
 
-    clickSelect() {
-
-    }
-
 
     naviSkip() {
         Taro.navigateTo({
@@ -38,9 +35,7 @@ export default class Address extends Component<any, any> {
     }
 
     saveAddress() {
-        let myAddress = this.state.myAddress
-        let { username, phone, address } = myAddress
-
+        let { username, phone, address, explanation } = this.state.myAddress
         if (username === '') {
             Taro.showModal({
                 content: '请填写联系人',
@@ -59,18 +54,23 @@ export default class Address extends Component<any, any> {
                 showCancel: false
             })
             return false
-        } else if (address === 0) {
+        } else if (address === '.') {
             Taro.showModal({
                 content: '请填写收货地址',
                 showCancel: false
             })
             return false
         }
+        let { myAddress, addressList } = this.state
+        myAddress = Taro.getStorageSync('addressList')
+        let newObj = Object.assign(myAddress, {
+            username, phone, address, explanation
+        })
+        addressList.push(newObj)
 
-        // let addressList = []
 
 
-        Taro.setStorageSync('myAddress', myAddress)
+        Taro.setStorageSync('addressList', JSON.stringify(addressList))
         Taro.navigateBack({
             delta: 1
         })
@@ -112,7 +112,7 @@ export default class Address extends Component<any, any> {
 
 
     render() {
-        let { username, phone, address, explanation } = this.state.myAddress
+        const { username, phone, address, explanation } = this.state.myAddress
         return (
             <View className='index'>
                 <View className='user_information' >
@@ -122,7 +122,7 @@ export default class Address extends Component<any, any> {
                     </View>
                     <View className='information_list' >
                         <View className='header'> 性别 </View>
-                        <View onClick={this.clickSelect} >
+                        <View  >
                             <Text className='text' >{this.state.sir}</Text>
                             <Text className='text' >{this.state.lady}</Text>
                         </View>
@@ -133,7 +133,11 @@ export default class Address extends Component<any, any> {
                     </View>
                     <View className='information_list' onClick={this.naviSkip} >
                         <View className='header'> 地址 </View>
-                        <Input type='text' placeholder='选择收货地址' value={address} disabled onInput={this.handleChange3} />
+                        <View>
+                            {address.length > 0 ?
+                                <Text>{address}</Text> : <Text className='address' >选择收货地址</Text>
+                            }
+                        </View>
                     </View>
                     <View className='information_list' >
                         <View className='header'> 补充说明 </View>

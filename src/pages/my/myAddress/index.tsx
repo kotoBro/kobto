@@ -7,15 +7,20 @@ export default class Address extends Component<any, any> {
     constructor(props) {
         super(props)
         this.state = {
-            myAddress: {
-                username: '',
-                phone: '',
-                address: '',
-                explanation: '',
-            }
+            addressList: []
 
 
         }
+    }
+
+    componentDidShow() {
+        let { addressList } = this.state
+        let obj = Taro.getStorageSync('addressList')
+        addressList = JSON.parse(obj)
+        this.setState({
+            addressList
+        })
+
     }
 
     config: Config = {
@@ -24,16 +29,7 @@ export default class Address extends Component<any, any> {
 
     }
 
-    componentDidShow() {
-        let { myAddress } = this.state
-        myAddress = Taro.getStorageSync('username')
 
-        this.setState({
-            myAddress
-        })
-
-
-    }
 
     naviSkip() {
         Taro.navigateTo({
@@ -42,17 +38,18 @@ export default class Address extends Component<any, any> {
     }
 
     render() {
-        let { username, phone, address, explanation } = this.state.myAddress
+        let { addressList } = this.state
         return (
             <View className='index'>
                 <View className='myAddress' >
-                    <View className='container' >
-                        <View className='user_info' >
-                            <View className='name' > {username} </View>
-                            <View className='phone' > {phone} </View>
+                    {addressList.map((item) => (<View className='container' key={String(item)}>
+                        <View className='user_info'>
+                            <View className='name'> {item.username} </View>
+                            <View className='phone'> {item.phone} </View>
                         </View>
-                        <View className='text' > {address} {explanation} </View>
-                    </View>
+                        <View className='text'> {item.address} {item.explanation} </View>
+                    </View>))}
+
                 </View>
 
                 <View className='newIncreased_address' onClick={this.naviSkip}  >
