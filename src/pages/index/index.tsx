@@ -24,7 +24,8 @@ export default class Index extends Component<any, any> {
         deliveryFee: '',
         mimu: '',
         distance: ''
-      }
+      },
+      storeList: []
     }
   }
 
@@ -40,15 +41,22 @@ export default class Index extends Component<any, any> {
 
 
 
+  // async getStore() {
+  //   const res = await getData()
+  //   this.setState({
+  //     storeInfo: {
+  //       res
+  //     }
+  //   })
+  // }
   async getStore() {
-    const res = await getData()
+    const res: any = await getData()
+    console.log(res)
     this.setState({
-      storeInfo: {
-        res
-      }
-
+      storeList: res.data
     })
   }
+
 
   naviSkip(obj) {
     Taro.navigateTo({
@@ -64,14 +72,14 @@ export default class Index extends Component<any, any> {
       { icon: demoIcon, name: '甜品饮料', naviUrl: '/pages/index/dessertDrink/index' },
       { icon: demoIcon, name: '炸鸡炸串', naviUrl: '/pages/index/friedFood/index' }
     ]
-    const { storeName, shopLocation, business, collectionQuantity, monthlySales, price,
-      deliveryFee, mimu, distance }
-      = this.state.storeInfo
-    const res = getData()
+    // const { storeName, shopLocation, business, collectionQuantity, monthlySales, price,
+    //   deliveryFee, mimu, distance }
+    //   = this.state.storeInfo
+    const storeList = this.state.storeList
     return (
       <View className='index'>
         <View className='location' >
-          <View className='container' onClick={getData}>
+          <View className='container'>
             <Image src={locationPng} className='icon' />
           </View>
           <View>
@@ -109,29 +117,29 @@ export default class Index extends Component<any, any> {
 
           <View className='recommend_business' >
 
-            {res.map((item) =>
+            {storeList.map((item) =>
               (<View className='container' key={String(item)}>
                 <Image className='img' src={swiperPng} />
                 <View className='info'>
                   <View className='shop_name'>
-                    {storeName} ({shopLocation || '汕尾店'})
+                    {item.storeName} ({item.shopLocation || '汕尾店'})
                 </View>
                   <View className='content'>
                     <View className='business'>
-                      {business || '本店已休息'}
+                      {item.business || '本店已休息'}
                     </View>
                     <View className='business_situation'>
-                      <View className='text collection'>★{collectionQuantity || '0'} </View>
-                      <View>月售 {monthlySales || '0'} </View>
+                      <View className='text collection'>★{item.collectionQuantity || '0'} </View>
+                      <View>月售 {item.monthlySales || '0'} </View>
                     </View>
                     <View className='distribution_details'>
                       <View className='container'>
-                        <View className='text'>起送￥{price}</View>
-                        <View>{deliveryFee}</View>
+                        <View className='text'>起送￥{item.price}</View>
+                        <View>{item.deliveryFee}</View>
                       </View>
                       <View className='container'>
-                        <View className='text'> {mimu}分钟 </View>
-                        <View> {distance}km </View>
+                        <View className='text'> {item.mimu}分钟 </View>
+                        <View> {item.distance}km </View>
                       </View>
                     </View>
                   </View>
