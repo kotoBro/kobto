@@ -13,7 +13,7 @@ export default class Address extends Component<any, any> {
             myAddress: {
                 username: '',
                 phone: '',
-                address: '',
+                address: '铂涛大厦',
                 explanation: '',
 
             },
@@ -68,8 +68,7 @@ export default class Address extends Component<any, any> {
         let { myAddress, addressList } = this.state
         let arrList = Taro.getStorageSync('addressList')
         addressList = arrList && JSON.parse(arrList) || []
-        addressList.push(myAddress)
-
+        addressList.push({ ...myAddress, addressId: '20200323' + addressList.length })
         Taro.setStorageSync('addressList', JSON.stringify(addressList))
         Taro.navigateBack({
             delta: 1

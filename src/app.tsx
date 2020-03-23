@@ -3,7 +3,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import Index from './pages/index'
 import './app.scss'
-import './utils/test'
 
 class App extends Component {
 
