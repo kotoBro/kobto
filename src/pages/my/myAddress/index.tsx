@@ -27,7 +27,9 @@ export default function Address() {
                             </View>
                             <View className='text'> {item.address} {item.explanation} </View>
                         </View>
-                        <View className='edit'>
+                        <View className='edit' onclick={() => {
+
+                        }} >
                             <Image className='img' src={demoIcon} />
                         </View>
                     </View>

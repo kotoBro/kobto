@@ -57,7 +57,7 @@ export default class Address extends Component<any, any> {
                 showCancel: false
             })
             return false
-        } else if (address === '.') {
+        } else if (address === '') {
             Taro.showModal({
                 content: '请填写收货地址',
                 showCancel: false
@@ -108,7 +108,7 @@ export default class Address extends Component<any, any> {
         const { username, phone, address, explanation } = this.state.myAddress
         const { sir, lady } = this.state
         return (
-            <View className='index'>
+            <View>
                 <AddressForm
                     username={username}
                     phone={phone}
@@ -116,10 +116,10 @@ export default class Address extends Component<any, any> {
                     explanation={explanation}
                     sir={sir}
                     lady={lady}
-                    handleUsernameInput={this.handleUsernameInput}
-                    handlePhoneInput={this.handlePhoneInput}
-                    handleExplanationInput={this.handleExplanationInput}
-                    naviSkip={this.naviSkip}
+                    handleUsernameInput={this.handleUsernameInput.bind(this)}
+                    handlePhoneInput={this.handlePhoneInput.bind(this)}
+                    handleExplanationInput={this.handleExplanationInput.bind(this)}
+                    naviSkip={this.naviSkip.bind(this)}
 
                 />
                 <Button className='button' onClick={this.saveAddress} >确定</Button>
