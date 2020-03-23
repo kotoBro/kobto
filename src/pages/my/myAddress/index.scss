@@ -3,33 +3,51 @@ page {
 }
 
 .myAddress {
-  background-color: #fff;
+
   margin-bottom: 5px;
 
   .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
     padding: 20px;
+    margin: 5px;
 
-    .user_info {
-      display: flex;
-      padding-bottom: 20px;
-      text-align: justify;
+    .address_info {
+      .user_info {
+        display: flex;
+        padding-bottom: 20px;
+        text-align: justify;
 
-      .name {
-        font-weight: bold;
-        padding-right: 20px;
+        .name {
+          font-weight: bold;
+          padding-right: 20px;
 
 
+        }
+
+        .phone {
+          font-weight: 200;
+        }
       }
 
-      .phone {
+      .text {
         font-weight: 200;
+        font-size: 27px;
+      }
+
+    }
+
+    .edit {
+      .img {
+        width: 60px;
+        height: 60px;
       }
     }
 
-    .text {
-      font-weight: 200;
-      font-size: 27px;
-    }
+
+
   }
 
 }

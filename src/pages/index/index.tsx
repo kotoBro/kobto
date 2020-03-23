@@ -2,8 +2,7 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import './index.scss'
-import SearchBox from '../../components/searchBox/index'
-import HomePageSwiper from '../../components/homePageSwiper/index'
+import { HomePageSwiper, SearchBox } from '../../components/index'
 
 import locationPng from '../../static/icons/location.png'
 import demoIcon from '../../static/icons/demo_icon.png'
