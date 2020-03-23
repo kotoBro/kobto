@@ -58,13 +58,6 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/index/search/index",
-					"pathName": "pages/index/search/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "pages/my/myAddress/newIncreasedAddress/index",
 					"pathName": "pages/my/myAddress/newIncreasedAddress/index",
 					"query": "",
@@ -74,6 +67,7 @@
 					"id": -1,
 					"name": "pages/my/myAddress/index",
 					"pathName": "pages/my/myAddress/index",
+					"query": "",
 					"scene": null
 				}
 			]
