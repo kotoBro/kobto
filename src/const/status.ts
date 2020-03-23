@@ -11,9 +11,9 @@ export const HTTP_STATUS = {
 }
 
 // promise status
-export const SUCCESS = { success:'success'}
-export const FAIL = { fail:'fail'}
-export const COMPLETE = { complete:'complete'}
+export const SUCCESS = { success: 'success' }
+export const FAIL = { fail: 'fail' }
+export const COMPLETE = { complete: 'complete' }
 
 export const PROMISE_STATUS = {
   success: 'success',
@@ -22,6 +22,6 @@ export const PROMISE_STATUS = {
 }
 
 export const RESULT_STATUS = {
-  SUCCESS:0,
+  SUCCESS: 0,
   SIGNATURE_FAILED: 1000  // 签名失败
 }
