@@ -68,7 +68,7 @@ export default class Address extends Component<any, any> {
         let { myAddress, addressList } = this.state
         let arrList = Taro.getStorageSync('addressList')
         addressList = arrList && JSON.parse(arrList) || []
-        addressList.push({ ...myAddress, addressId: '20200323' + addressList.length })
+        addressList.push({ ...myAddress, addressId: 'cx2020' + (Math.random() * 100).toFixed(0) })
         Taro.setStorageSync('addressList', JSON.stringify(addressList))
         Taro.navigateBack({
             delta: 1

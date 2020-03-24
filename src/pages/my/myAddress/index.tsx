@@ -12,8 +12,9 @@ export default function Address() {
         let arrList = Taro.getStorageSync('addressList')
         // eslint-disable-next-line react-hooks/exhaustive-deps
         addressList = arrList && JSON.parse(arrList) || []
+        console.log(addressList)
         setAddressList(addressList)
-    }, [addressList])
+    }, [])
 
     return (
         <View className='index'>
@@ -38,6 +39,7 @@ export default function Address() {
                                         const result = addressList.filter((obj) => {
                                             return obj.addressId !== addressList[idx].addressId
                                         })
+                                        setAddressList(addressList)
                                         Taro.setStorageSync('addressList', JSON.stringify(result))
                                     } else if (res.cancel) {
                                         console.log('取消删除')
