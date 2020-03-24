@@ -5,7 +5,7 @@ import demoIcon from '../../../static/icons/demo_icon.png'
 
 export default function Address() {
     let [addressList, setAddressList] = useState([
-        { username: '', phone: '', address: '', explanation: '' }
+        { addressId: '', username: '', phone: '', address: '', explanation: '' }
     ])
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function Address() {
     return (
         <View className='index'>
             <View className='myAddress' >
-                {addressList.map((item) => (
+                {addressList.map((item, idx) => (
                     <View className='container' key={String(item)}>
                         <View className='address_info' >
                             <View className='user_info'>
@@ -27,9 +27,25 @@ export default function Address() {
                             </View>
                             <View className='text'> {item.address} {item.explanation} </View>
                         </View>
-                        <View className='edit' onclick={() => {
-
-                        }} >
+                        <View className='edit' onClick={() => {
+                            Taro.showModal({
+                                title: '提示',
+                                content: '您确定要删除该地址?',
+                                success: res => {
+                                    if (res.confirm) {
+                                        let arrList = Taro.getStorageSync('addressList')
+                                        addressList = arrList && JSON.parse(arrList) || []
+                                        const result = addressList.filter((obj) => {
+                                            return obj.addressId !== addressList[idx].addressId
+                                        })
+                                        Taro.setStorageSync('addressList', JSON.stringify(result))
+                                    } else if (res.cancel) {
+                                        console.log('取消删除')
+                                    }
+                                }
+                            })
+                        }}
+                        >
                             <Image className='img' src={demoIcon} />
                         </View>
                     </View>

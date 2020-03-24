@@ -11,10 +11,10 @@ export default class Address extends Component<any, any> {
         super(props)
         this.state = {
             myAddress: {
-                username: '',
-                phone: '',
+                username: '陈锡',
+                phone: '13342955555',
                 address: '铂涛大厦',
-                explanation: '',
+                explanation: '宁湖村委会',
 
             },
             sir: '先生',
