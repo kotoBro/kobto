@@ -1,4 +1,4 @@
-import Taro, { useState, useEffect, useDidShow } from '@tarojs/taro'
+import Taro, { useState, useDidShow } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import './index.scss'
 import demoIcon from '../../../static/icons/demo_icon.png'
@@ -9,7 +9,6 @@ export default function Address() {
     ])
     console.log(addressList)
     useDidShow(() => {
-        console.log(11111111111)
         let arrList = Taro.getStorageSync('addressList')
         let initList = arrList && JSON.parse(arrList) || []
         setAddressList(initList)
@@ -27,6 +26,7 @@ export default function Address() {
                             </View>
                             <View className='text'> {item.address} {item.explanation} </View>
                         </View>
+
                         <View className='edit' onClick={() => {
                             Taro.showModal({
                                 title: '提示',
@@ -40,6 +40,13 @@ export default function Address() {
                                         })
                                         setAddressList(result)
                                         Taro.setStorageSync('addressList', JSON.stringify(result))
+
+                                        Taro.showToast({
+                                            title: '删除成功',
+                                            success: () => {
+                                                console.log('删除成功回调')
+                                            }
+                                        })
                                     } else if (res.cancel) {
                                         console.log('取消删除')
                                     }
@@ -53,6 +60,8 @@ export default function Address() {
 
                 ))}
             </View>
+
+            <View className='placeholder' ></View>
 
             <View className='newIncreased_address' onClick={() =>
                 Taro.navigateTo({

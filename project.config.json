@@ -65,8 +65,9 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/my/myAddress/index",
-					"pathName": "pages/my/myAddress/index",
+					"name": "pages/my/myAddress/newIncreasedAddress/index",
+					"pathName": "pages/my/myAddress/newIncreasedAddress/index",
+					"query": "",
 					"scene": null
 				}
 			]

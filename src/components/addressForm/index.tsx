@@ -9,7 +9,7 @@ export default function Addressform(props) {
             <View className='user_info' >
                 <View className='info_list' >
                     <View className='header'> 联系人 </View>
-                    <Input type='text' placeholder='姓名' value={props.username} onInput={props.handleUsernameInput} />
+                    <Input type='text' placeholder='姓名' name='username' value={props.username} onInput={props.handleInput} />
                 </View>
                 <View className='info_list' >
                     <View className='header'> 性别 </View>
@@ -20,7 +20,7 @@ export default function Addressform(props) {
                 </View>
                 <View className='info_list' >
                     <View className='header'> 电话 </View>
-                    <Input type='number' placeholder='手机电话' value={props.phone} onInput={props.handlePhoneInput} />
+                    <Input type='number' placeholder='手机电话' name='phone' value={props.phone} onInput={props.handleInput} />
                 </View>
                 <View className='info_list' onClick={props.naviSkip} >
                     <View className='header'> 地址 </View>
@@ -32,7 +32,7 @@ export default function Addressform(props) {
                 </View>
                 <View className='info_list' >
                     <View className='header'> 补充说明 </View>
-                    <Input type='text' placeholder='详细地址 (如门牌号等)' value={props.explanation} onInput={props.handleExplanationInput} />
+                    <Input type='text' placeholder='详细地址 (如门牌号等)' name='explanation' value={props.explanation} onInput={props.handleInput} />
                 </View>
             </View>
         </View>

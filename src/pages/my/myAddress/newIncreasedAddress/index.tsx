@@ -11,10 +11,10 @@ export default class Address extends Component<any, any> {
         super(props)
         this.state = {
             myAddress: {
-                username: '陈锡',
-                phone: '13342955555',
+                username: '',
+                phone: '',
                 address: '铂涛大厦',
-                explanation: '宁湖村委会',
+                explanation: '',
 
             },
             sir: '先生',
@@ -39,6 +39,7 @@ export default class Address extends Component<any, any> {
 
     saveAddress() {
         let { username, phone, address } = this.state.myAddress
+        let phoneValue = /^1\d{10}$/i
         if (username === '') {
             Taro.showModal({
                 content: '请填写联系人',
@@ -51,9 +52,9 @@ export default class Address extends Component<any, any> {
                 showCancel: false
             })
             return false
-        } else if (phone.length !== 11) {
+        } else if (phone.length !== 11 || !phoneValue.test(phone)) {
             Taro.showModal({
-                content: '您输入的号码长度有误',
+                content: '您输入的号码格式有误',
                 showCancel: false
             })
             return false
@@ -70,34 +71,29 @@ export default class Address extends Component<any, any> {
         addressList = arrList && JSON.parse(arrList) || []
         addressList.push({ ...myAddress, addressId: 'cx2020' + (Math.random() * 100000).toFixed(0) })
         Taro.setStorageSync('addressList', JSON.stringify(addressList))
+
         Taro.navigateBack({
             delta: 1
         })
-    }
 
-    handleUsernameInput(e) {
-        this.setState({
-            myAddress: {
-                ...this.state.myAddress,
-                username: e.target.value
+        Taro.showToast({
+            title: '新增用户地址',
+            success: () => {
+                console.log('新增地址回调')
             }
         })
     }
 
-    handlePhoneInput(e) {
+    handleInput(e) {
+        console.log(e.target)
+        console.log(e.target.name)
+        let {
+            target: { name, value }
+        } = e
         this.setState({
             myAddress: {
                 ...this.state.myAddress,
-                phone: e.target.value
-            }
-        })
-    }
-
-    handleExplanationInput(e) {
-        this.setState({
-            myAddress: {
-                ...this.state.myAddress,
-                explanation: e.target.value
+                [name]: value
             }
         })
     }
@@ -115,9 +111,7 @@ export default class Address extends Component<any, any> {
                     explanation={explanation}
                     sir={sir}
                     lady={lady}
-                    handleUsernameInput={this.handleUsernameInput.bind(this)}
-                    handlePhoneInput={this.handlePhoneInput.bind(this)}
-                    handleExplanationInput={this.handleExplanationInput.bind(this)}
+                    handleInput={this.handleInput.bind(this)}
                     naviSkip={this.naviSkip.bind(this)}
 
                 />
