@@ -1,4 +1,4 @@
-import Taro, { useState, useEffect } from '@tarojs/taro'
+import Taro, { useState, useEffect, useDidShow } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import './index.scss'
 import demoIcon from '../../../static/icons/demo_icon.png'
@@ -7,14 +7,13 @@ export default function Address() {
     let [addressList, setAddressList] = useState([
         { addressId: '', username: '', phone: '', address: '', explanation: '' }
     ])
-
-    useEffect(() => {
+    console.log(addressList)
+    useDidShow(() => {
+        console.log(11111111111)
         let arrList = Taro.getStorageSync('addressList')
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        addressList = arrList && JSON.parse(arrList) || []
-        console.log(addressList)
-        setAddressList(addressList)
-    }, [])
+        let initList = arrList && JSON.parse(arrList) || []
+        setAddressList(initList)
+    })
 
     return (
         <View className='index'>
@@ -39,7 +38,7 @@ export default function Address() {
                                         const result = addressList.filter((obj) => {
                                             return obj.addressId !== addressList[idx].addressId
                                         })
-                                        setAddressList(addressList)
+                                        setAddressList(result)
                                         Taro.setStorageSync('addressList', JSON.stringify(result))
                                     } else if (res.cancel) {
                                         console.log('取消删除')
