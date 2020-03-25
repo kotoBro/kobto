@@ -9,24 +9,27 @@ page {
 
     .info_list {
       display: flex;
-      padding: 30px;
       border-bottom: 3px solid #d3d3d3;
+    }
 
-      .header {
-        font-weight: bold;
-        width: 25%;
+    .topline {
+      border-top: 3px solid #d3d3d3;
+    }
+
+    .gender {
+      display: flex;
+      justify-content: center;
+
+      .container {
+        display: flex;
+        margin: 20px 0;
+
+        .text {
+          border: 1px solid #d3d3d3;
+          padding: 10px 40px;
+          margin-right: 30px;
+        }
       }
-
-      .address {
-        color: #a9a9a9;
-      }
-
-      .text {
-        padding: 10px 20px;
-        margin-right: 20px;
-        border: 1px solid #d3d3d3;
-      }
-
 
 
     }

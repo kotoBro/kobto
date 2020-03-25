@@ -11,14 +11,14 @@ export default class Address extends Component<any, any> {
         super(props)
         this.state = {
             myAddress: {
-                username: '',
-                phone: '',
+                username: '流星',
+                phone: '11111111111',
                 address: '铂涛大厦',
-                explanation: '',
+                explanation: '宁湖村委会',
+                sir: '先生',
+                lady: '女士',
 
             },
-            sir: '先生',
-            lady: '女士',
             addressList: []
         }
     }
@@ -29,9 +29,7 @@ export default class Address extends Component<any, any> {
 
     }
 
-
-
-    naviSkip() {
+    naviSkip = () => {
         Taro.navigateTo({
             url: '/pages/address/index'
         })
@@ -71,11 +69,9 @@ export default class Address extends Component<any, any> {
         addressList = arrList && JSON.parse(arrList) || []
         addressList.push({ ...myAddress, addressId: 'cx2020' + (Math.random() * 100000).toFixed(0) })
         Taro.setStorageSync('addressList', JSON.stringify(addressList))
-
         Taro.navigateBack({
             delta: 1
         })
-
         Taro.showToast({
             title: '新增用户地址',
             success: () => {
@@ -84,24 +80,24 @@ export default class Address extends Component<any, any> {
         })
     }
 
-    handleInput(e) {
-        console.log(e.target)
-        console.log(e.target.name)
-        let {
+    handleChange(obj, e) {
+        const {
             target: { name, value }
         } = e
+        let arrId = e.target
+        console.log(e.target, name, value)
         this.setState({
             myAddress: {
                 ...this.state.myAddress,
-                [name]: value
+                [arrId.id]: value
             }
         })
+        return obj
     }
 
 
     render() {
-        const { username, phone, address, explanation } = this.state.myAddress
-        const { sir, lady } = this.state
+        const { username, phone, address, explanation, sir, lady } = this.state.myAddress
         return (
             <View>
                 <AddressForm
@@ -111,8 +107,8 @@ export default class Address extends Component<any, any> {
                     explanation={explanation}
                     sir={sir}
                     lady={lady}
-                    handleInput={this.handleInput.bind(this)}
-                    naviSkip={this.naviSkip.bind(this)}
+                    handleChange={this.handleChange.bind(this)}
+                    naviSkip={this.naviSkip}
 
                 />
                 <Button className='button' onClick={this.saveAddress} >确定</Button>

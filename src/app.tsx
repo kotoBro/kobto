@@ -1,8 +1,10 @@
 
 // eslint-disable-next-line no-unused-vars
 import Taro, { Component, Config } from '@tarojs/taro'
+import 'taro-ui/dist/style/index.scss'
 import Index from './pages/index'
 import './app.scss'
+
 
 class App extends Component {
 
