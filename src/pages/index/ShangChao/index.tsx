@@ -14,7 +14,7 @@ export default class ShangChao extends Component {
     render() {
         return (
             <View className='index'>
-                <SearchBox placeholder='搜索商家、商品名称' />
+                <SearchBox text='果蔬纸巾矿泉水、零食饮料肉蛋肠' />
             </View>
         )
     }

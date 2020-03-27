@@ -7,14 +7,14 @@ import SearchBox from '../../../components/searchBox/index'
 export default class FriedFood extends Component {
 
     config: Config = {
-        navigationBarTitleText: '炸鸡炸串',
+        navigationBarTitleText: '炸鸡烤串',
         navigationBarBackgroundColor: '#1e90ff'
     }
 
     render() {
         return (
             <View className='index'>
-                <SearchBox placeholder='搜索商家、商品名称' />
+                <SearchBox text='炸鸡汉堡土豆泥、炸串烤串烤韭菜' />
             </View>
         )
     }

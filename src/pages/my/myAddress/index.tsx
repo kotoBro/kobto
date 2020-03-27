@@ -7,7 +7,6 @@ export default function Address() {
     let [addressList, setAddressList] = useState([
         { addressId: '', username: '', phone: '', address: '', explanation: '' }
     ])
-    console.log(addressList)
     useDidShow(() => {
         let arrList = Taro.getStorageSync('addressList')
         let initList = arrList && JSON.parse(arrList) || []

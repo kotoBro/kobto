@@ -1,15 +1,78 @@
-.search_box {
-  width: 90%;
+Page {
   background-color: #f5f5f5;
-  border-radius: 50px;
-  text-align: center;
-  padding: 15px 0;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+}
 
-  .text {
-    font-size: 28px;
-    font-weight: 100;
+.index {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+
+  .search_box {
+    background-color: #1e90ff;
+    padding: 20px 0;
+
+    .container {
+      display: flex;
+      align-items: center;
+      width: 95%;
+      border-radius: 50px;
+      background-color: #fff;
+      padding: 15px 0;
+      margin: 0 auto;
+
+      .img {
+        width: 40px;
+        height: 40px;
+        padding: 0 20px;
+
+      }
+
+      .text {
+        font-size: 26px;
+        color: #808080;
+      }
+    }
+
   }
+
+  .sortScreen {
+    padding: 20px;
+    background-color: #fff;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+
+      .sort {
+        font-size: 28px;
+        color: #1e90ff;
+      }
+
+      .screening {
+        display: flex;
+
+        .img {
+          width: 40px;
+          height: 40px;
+
+        }
+      }
+    }
+
+    .discount_list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .tab {
+        font-size: 27px;
+        margin: 0 5px;
+        border: 1px solid #f5f5f5;
+        background: #f5f5f5;
+        padding: 15px;
+      }
+    }
+  }
+
 }

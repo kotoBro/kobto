@@ -82,10 +82,10 @@ export default class Address extends Component<any, any> {
 
     handleChange(obj, e) {
         const {
-            target: { name, value }
+            target: { value }
         } = e
         let arrId = e.target
-        console.log(e.target, name, value)
+        console.log(e.target)
         this.setState({
             myAddress: {
                 ...this.state.myAddress,

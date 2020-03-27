@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-indent-props */
 import Taro, { Component } from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image } from '@tarojs/components'
-import swiperPng from '../../static/imgs/demo_img.png'
+import './index.scss'
+
+import swiperPng from '../../static/imgs/demo.jpg'
 
 export default class SwiperImageItem extends Component {
 
@@ -17,12 +19,12 @@ export default class SwiperImageItem extends Component {
                 >
                     <SwiperItem>
                         <View>
-                            <Image src={swiperPng} />
+                            <Image className='img' src={swiperPng} />
                         </View>
                     </SwiperItem>
                     <SwiperItem>
                         <View>
-                            <Image src={swiperPng} />
+                            <Image className='img' src={swiperPng} />
                         </View>
                     </SwiperItem>
                 </Swiper>

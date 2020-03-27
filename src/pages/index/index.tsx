@@ -2,12 +2,13 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import './index.scss'
-import { HomePageSwiper, SearchBox } from '../../components/index'
+import { HomePageSwiper } from '../../components/index'
 
 import locationPng from '../../static/icons/location.png'
+import searchIcon from '../../static/tarBar/search1.png'
 import demoIcon from '../../static/icons/demo_icon.png'
 import { getData } from '../../constants/test'
-import swiperPng from '../../static/imgs/demo_img.png'
+import swiperPng from '../../static/imgs/demo.jpg'
 
 export default class Index extends Component<any, any> {
   constructor(props) {
@@ -35,6 +36,12 @@ export default class Index extends Component<any, any> {
       storeList: res.data
     })
   }
+  editNavi = () => {
+    Taro.navigateTo({
+      url: '/pages/index/search/index'
+    })
+  }
+
 
 
   naviSkip(obj) {
@@ -44,7 +51,7 @@ export default class Index extends Component<any, any> {
   }
 
   render() {
-    const discountList = ['满减优惠', '下单返红包', '进店领红包', '品质联盟红包']
+    const discountList = ['首单立减', '满减优惠', '免费配送', '品牌商家', '新店']
     const tabList = [
       { icon: demoIcon, name: '商超便利', naviUrl: '/pages/index/shangChao/index' },
       { icon: demoIcon, name: '水果', naviUrl: '/pages/index/fruit/index' },
@@ -59,21 +66,24 @@ export default class Index extends Component<any, any> {
           <View className='container'>
             <Image src={locationPng} className='icon' />
           </View>
-          <View>
-            <SearchBox placeholder='搜索商家、商品名称' />
+          <View className='search_box' onClick={this.editNavi} >
+            <View className='container' >
+              <Image className='img' src={searchIcon} />
+              <Text className='text' >搜索商家、商品名称</Text>
+            </View>
           </View>
         </View>
 
         <HomePageSwiper />
 
         <View className='tab_list' >
-          {tabList.map((tab, idx) => {
+          {tabList.map((item, idx) => {
             return (
-              <View className='tab_item' key={idx} onClick={this.naviSkip.bind(this, tab)} >
+              <View className='tab_item' key={idx} onClick={this.naviSkip.bind(this, item)} >
                 <View>
-                  <Image className='icon' src={tab.icon} />
+                  <Image className='icon' src={item.icon} />
                 </View>
-                <View>{tab.name}</View>
+                <View>{item.name}</View>
               </View>
             )
           }

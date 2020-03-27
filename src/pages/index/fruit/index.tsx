@@ -14,7 +14,7 @@ export default class Fruit extends Component {
     render() {
         return (
             <View className='index'>
-                <SearchBox placeholder='搜索商家、商品名称' />
+                <SearchBox text='草莓香蕉、黑凤梨' />
             </View>
         )
     }
