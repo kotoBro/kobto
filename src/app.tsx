@@ -16,9 +16,11 @@ class App extends Component {
       'pages/index/fruit/index',
       'pages/index/dessertDrink/index',
       'pages/index/friedFood/index',
-      'pages/shoppingCart/index',
-      'pages/my/index',
 
+      'pages/order/index',
+      'pages/order/orderDetails/index',
+
+      'pages/my/index',
       'pages/my/myAddress/index',
       'pages/my/myAddress/newIncreasedAddress/index',
 
@@ -46,8 +48,8 @@ class App extends Component {
         selectedIconPath: 'static/tarBar/search2.png'
       },
       {
-        text: '购物车',
-        pagePath: 'pages/shoppingCart/index',
+        text: '订单',
+        pagePath: 'pages/order/index',
         iconPath: 'static/tarBar/home1.png',
         selectedIconPath: 'static/tarBar/home2.png'
       },
