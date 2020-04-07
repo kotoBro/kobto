@@ -20,6 +20,8 @@ export default class Order extends Component<any, any> {
         navigationBarBackgroundColor: '#1e90ff'
     }
 
+
+
     render() {
         const { orderList } = this.state
         return (
@@ -31,7 +33,7 @@ export default class Order extends Component<any, any> {
                             <View className='info' >
                                 <View className='container2' >
                                     <View className='shop_name' >
-                                        {orderList.storeName || '肯德基'} ({orderList.shopLocation || '湖东店'})
+                                        {orderList.storeName || '肯德基(湖东店)'}
                                     </View>
                                     <View>＞</View>
                                     <View className='order_process' >{orderList.orderProcess || '订单已完成'}</View>
@@ -39,7 +41,7 @@ export default class Order extends Component<any, any> {
                                 <View className='date' >{orderList.date || '2020-03-16 13:14'}</View>
                                 <View className='container3' >
                                     <View className='commodity' >
-                                        {orderList.commodity || '番茄烩牛肉盖饭'} 等{orderList.commodityQuantity || '5'}件商品
+                                        {orderList.commodity || '全家桶'} 等{orderList.commodityQuantity || '5'}件商品
                                     </View>
                                     <View className='actual_payment' >￥{orderList.actualPayment || '20'}</View>
                                 </View>

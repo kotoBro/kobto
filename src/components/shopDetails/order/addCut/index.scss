@@ -1,0 +1,35 @@
+.add_cut {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  font-size: 26px;
+
+  .hide {
+    display: none;
+  }
+
+  .cut,
+  .add {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #1e90ff;
+    border-radius: 50%;
+    text-align: center;
+    padding: 2px;
+    margin: 0 15px;
+  }
+
+  .cut {
+    background-color: #fff;
+    color: #1e90ff;
+  }
+
+  .num {
+    font-size: 35px;
+  }
+
+  .add {
+    background-color: #1e90ff;
+    color: #fff;
+  }
+}

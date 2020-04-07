@@ -7,7 +7,6 @@ import foodPng from '../../../../static/imgs/null.png'
 export default function ShopInfo(props) {
     const [storeName] = useState('')
     const [foodName] = useState('')
-    const [shopLocation] = useState('')
     const [foodQuantity] = useState('')
     const [foodPrice] = useState('')
     const [actualPayment] = useState('')
@@ -23,7 +22,7 @@ export default function ShopInfo(props) {
         <View className='shop_info' >
             <View className='header' >
                 <View className='shop_name' >
-                    {storeName || '肯德基'} ({shopLocation || '湖东店'})  ＞
+                    {storeName || '肯德基(湖东店)'}  ＞
                             </View>
                 <View className='order_operation' >再来一单</View>
             </View>

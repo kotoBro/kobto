@@ -51,27 +51,6 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/my/myAddress/index",
-					"pathName": "pages/my/myAddress/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/index/search/index",
-					"pathName": "pages/index/search/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/index/shangChao/index",
-					"pathName": "pages/index/shangChao/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "pages/order/index",
 					"pathName": "pages/order/index",
 					"query": "",
@@ -82,6 +61,12 @@
 					"name": "pages/order/orderDetails/index",
 					"pathName": "pages/order/orderDetails/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/shopDetails/index",
+					"pathName": "pages/shopDetails/index",
 					"scene": null
 				}
 			]

@@ -28,7 +28,11 @@ class App extends Component {
       'pages/my/myCustomerService/index',
       'pages/my/ruleCenter/index',
 
-      'pages/address/index'
+      'pages/address/index',
+
+      'pages/shopDetails/index',
+
+      'pages/confirmOrder/index'
     ],
     window: {
       backgroundTextStyle: 'light',

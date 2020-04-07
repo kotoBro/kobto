@@ -8,7 +8,7 @@ import locationPng from '../../static/icons/location.png'
 import searchIcon from '../../static/tarBar/search1.png'
 import demoIcon from '../../static/icons/demo_icon.png'
 import { getData } from '../../constants/test'
-import swiperPng from '../../static/imgs/demo.jpg'
+import nullPng from '../../static/imgs/null.png'
 
 export default class Index extends Component<any, any> {
   constructor(props) {
@@ -36,7 +36,7 @@ export default class Index extends Component<any, any> {
       storeList: res.data
     })
   }
-  editNavi = () => {
+  naviSearchBox = () => {
     Taro.navigateTo({
       url: '/pages/index/search/index'
     })
@@ -47,6 +47,12 @@ export default class Index extends Component<any, any> {
   naviSkip(obj) {
     Taro.navigateTo({
       url: obj.naviUrl
+    })
+  }
+
+  naviShop = () => {
+    Taro.navigateTo({
+      url: '/pages/shopDetails/index'
     })
   }
 
@@ -66,7 +72,7 @@ export default class Index extends Component<any, any> {
           <View className='container'>
             <Image src={locationPng} className='icon' />
           </View>
-          <View className='search_box' onClick={this.editNavi} >
+          <View className='search_box' onClick={this.naviSearchBox} >
             <View className='container' >
               <Image className='img' src={searchIcon} />
               <Text className='text' >搜索商家、商品名称</Text>
@@ -102,14 +108,14 @@ export default class Index extends Component<any, any> {
             )}
           </View>
 
-          <View className='recommend_business' >
+          <View className='recommend_business' onClick={this.naviShop} >
             {storeList.map((item) =>
               (<View className='container' key={String(item)}>
-                <Image className='img' src={swiperPng} />
+                <Image className='img' src={nullPng} />
                 <View className='info'>
                   <View className='shop_name'>
-                    {item.storeName} ({item.shopLocation})
-                </View>
+                    {item.storeName}
+                  </View>
                   <View className='content'>
                     <View className='business'>
                       {item.business}
