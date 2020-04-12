@@ -1,0 +1,41 @@
+.index {
+  background-color: #1e90ff;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    color: #f5f5f5;
+    font-size: 27px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+  }
+
+  .address {
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    padding-bottom: 30px;
+    padding-left: 20px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+
+    .time,
+    .mode {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px;
+      border-bottom: 1px solid #dcdcdc;
+      font-size: 28px;
+
+      .right {
+        color: #1e90ff;
+      }
+    }
+  }
+}

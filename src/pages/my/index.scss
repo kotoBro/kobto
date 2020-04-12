@@ -2,20 +2,36 @@
   .container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
     background-color: #f5f5f5;
-    padding: 20px 30px;
+    padding: 20px;
 
     .username {
       font-size: 70px;
 
     }
 
-    .user_head {
-      .img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
+    .canvas {
+      width: 200px;
+      height: 200px;
+    }
 
+    .container2 {
+
+      .avatar_container {
+
+        .scroll_avatar {
+          display: flex;
+          height: 250px;
+
+          .avatar_preview {
+            .img {
+              width: 200px;
+              height: 200px;
+              box-sizing: border-box;
+            }
+          }
+        }
       }
     }
   }

@@ -9,10 +9,10 @@ class Event {
             this.events[eventsName] = [callBack]
         }
     }
-    emit(eventsName, params) {
+    emit(eventsName) {
         if (this.events[eventsName]) {
             this.events[eventsName].map((callBack) => {
-                callBack(params)
+                callBack()
             })
         }
     }

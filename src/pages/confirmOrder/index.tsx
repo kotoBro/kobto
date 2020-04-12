@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import './index.scss'
+import { Header } from '../../components/index'
 
-// import demoIcon1 from '../../../static/icons/demo_icon.png'
+import './index.scss'
 
 export default class ConfirmOrder extends Component<any, any> {
     constructor() {
@@ -21,7 +21,7 @@ export default class ConfirmOrder extends Component<any, any> {
     render() {
         return (
             <View className='confirm_order' >
-
+                <Header />
             </View>
         )
     }

@@ -1,65 +1,59 @@
-// eslint-disable-next-line no-unused-vars
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { getCommodityCount, setCommodityCount, getEvent } from '../../../../utils/shopDetails/index'
 import './index.scss'
 
-let myEvents = getEvent()
-
+let events = getEvent()
 
 export default class AddCut extends Component<any, any> {
     constructor() {
         super(...arguments)
         this.state = {
-            Num: 0
+            num: 0
         }
     }
 
     componentDidMount() {
         this.setState({
-            Num: getCommodityCount(this.props.commodity)
+            num: getCommodityCount(this.props.commodity)
         })
     }
 
-    handleCut() {
-        let { Num } = this.state
+    handleCut = () => {
+        let { num } = this.state
         let { commodity } = this.props
         if (commodity) {
-            if (Num > 0) {
-
-                setCommodityCount(commodity, Num, 'cut', () => {
+            if (num > 0) {
+                setCommodityCount(commodity, num, 'cut', () => {
                     this.setState({
-                        Num: getCommodityCount(commodity)
+                        num: getCommodityCount(commodity)
                     })
-                    myEvents.emit('addcut')
+                    events.emit('addcut')
                 })
-            } else {
-                console.error('当前加减商品出现异常')
             }
         }
     }
 
-    handleAdd() {
-        let { Num } = this.state
+    handleAdd = () => {
+        let { num } = this.state
         let { commodity } = this.props
         if (commodity) {
-            setCommodityCount(commodity, Num, 'add', () => {
+            setCommodityCount(commodity, num, 'add', () => {
                 this.setState({
-                    Num: getCommodityCount(commodity)
+                    num: getCommodityCount(commodity)
                 })
-                myEvents.emit('addcut')
+                events.emit('addcut')
             })
-
         }
     }
     render() {
-        let { Num } = this.state
-        let hideClass = Num > 0 ? '' : 'hide'
+        const { num } = this.state
+        let hideClass = num > 0 ? '' : 'hide'
         return (
             <View className='add_cut' >
-                <View className={'cut ' + hideClass} onClick={this.handleCut.bind(this)} >一</View>
-                <View className={'num ' + hideClass} >{Num}</View>
-                <View className='add' onClick={this.handleAdd.bind(this)} >十</View>
+                <View className={'cut ' + hideClass} onClick={this.handleCut} >一</View>
+                <View className={'num ' + hideClass} >{num}</View>
+                <View className='add' onClick={this.handleAdd} >十</View>
             </View>
         )
     }
